@@ -1,169 +1,693 @@
-flex-direction: column;
-                gap: 15px;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Sajjad Yalveh — Doctoral Researcher in Law at the University of Passau. Research in private law, civil liability, comparative law and German private law.">
+
+    <title>Sajjad Yalveh | Legal Scholar</title>
+
+    <style>
+
+        :root {
+            --bg: #f8f9fb;
+            --surface: #ffffff;
+            --text: #17202a;
+            --muted: #68727d;
+            --line: #e4e7eb;
+            --accent: #263746;
+            --accent-light: #eef2f5;
+            --max: 1180px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Helvetica,
+                Arial,
+                sans-serif;
+
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(var(--max), 90%);
+            margin: auto;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================== */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(255,255,255,0.94);
+            backdrop-filter: blur(10px);
+
+            border-bottom: 1px solid var(--line);
+        }
+
+        nav {
+            height: 76px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            font-size: 19px;
+            font-weight: 650;
+            letter-spacing: -0.3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            color: var(--muted);
+
+            transition: 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            padding: 120px 0 115px;
+
+            border-bottom: 1px solid var(--line);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.45fr 0.8fr;
+            gap: 90px;
+            align-items: center;
+        }
+
+        .eyebrow {
+            font-size: 13px;
+            font-weight: 650;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+
+            color: var(--muted);
+
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: clamp(48px, 7vw, 78px);
+            line-height: 1.02;
+
+            font-weight: 500;
+            letter-spacing: -2.5px;
+
+            margin-bottom: 28px;
+        }
+
+        .hero-title {
+            font-size: 22px;
+            color: #344454;
+
+            max-width: 720px;
+
+            margin-bottom: 10px;
+        }
+
+        .hero-degree {
+            font-size: 15px;
+            color: var(--muted);
+
+            margin-bottom: 32px;
+        }
+
+        .hero-description {
+            max-width: 720px;
+
+            font-size: 17px;
+            color: #4c5661;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 12px;
+
+            margin-top: 35px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+
+            padding: 11px 19px;
+
+            border: 1px solid var(--accent);
+            border-radius: 5px;
+
+            font-size: 14px;
+
+            transition: 0.2s ease;
+        }
+
+        .button.primary {
+            background: var(--accent);
+            color: white;
+          .button.secondary {
+            background: transparent;
+            color: var(--accent);
+        }
+
+        .button:hover {
+            transform: translateY(-1px);
+            opacity: 0.9;
+        }
+
+
+        /* =========================
+           RESEARCH CARD
+        ========================== */
+
+        .research-card {
+            background: var(--surface);
+
+            border: 1px solid var(--line);
+            border-radius: 8px;
+
+            padding: 35px;
+        }
+
+        .research-card-label {
+            font-size: 12px;
+
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+
+            color: var(--muted);
+
+            margin-bottom: 18px;
+        }
+
+        .research-card h2 {
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 26px;
+            line-height: 1.3;
+
+            font-weight: 500;
+
+            margin-bottom: 22px;
+        }
+
+        .research-card p {
+            font-size: 14px;
+            color: var(--muted);
+
+            margin-bottom: 24px;
+        }
+
+        .concepts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .concept {
+            background: var(--accent-light);
+
+            padding: 5px 9px;
+
+            border-radius: 4px;
+
+            font-size: 12px;
+            color: #42515e;
+        }
+
+
+        /* =========================
+           SECTIONS
+        ========================== */
+
+        section {
+            padding: 105px 0;
+
+            border-bottom: 1px solid var(--line);
+        }
+
+        .section-header {
+            display: grid;
+
+            grid-template-columns: 0.7fr 1.5fr;
+
+            gap: 80px;
+
+            margin-bottom: 55px;
+        }
+
+        .section-number {
+            font-size: 13px;
+            color: var(--muted);
+
+            letter-spacing: 1px;
+        }
+
+        .section-title {
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 40px;
+            line-height: 1.2;
+
+            font-weight: 500;
+        }
+
+        .section-intro {
+            max-width: 760px;
+
+            font-size: 17px;
+            color: #58636e;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================== */
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 30px;
+        }
+
+        .about-box {
+            background: white;
+
+            border: 1px solid var(--line);
+            border-radius: 7px;
+
+            padding: 30px;
+        }
+
+        .about-box h3 {
+            font-size: 17px;
+            margin-bottom: 14px;
+        }
+
+        .about-box p {
+            font-size: 15px;
+            color: var(--muted);
+        }
+
+
+        /* =========================
+           RESEARCH AREAS
+        ========================== */
+
+        .research-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .research-item {
+            background: white;
+
+            border: 1px solid var(--line);
+            border-radius: 7px;
+
+            padding: 30px;
+
+            min-height: 190px;
+        }
+
+        .research-item span {
+            font-size: 12px;
+
+            color: var(--muted);
+
+            letter-spacing: 1px;
+        }
+
+        .research-item h3 {
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 22px;
+            font-weight: 500;
+
+            margin: 18px 0 12px;
+        }
+
+        .research-item p {
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+
+        /* =========================
+           FEATURED PROJECT
+        ========================== */
+
+        .featured-project {
+            background: var(--accent);
+
+            color: white;
+
+            border-radius: 8px;
+
+            padding: 55px;
+        }
+
+        .project-label {
+            font-size: 12px;
+
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+
+            opacity: 0.65;
+
+            mar
+          gin-bottom: 20px;
+        }
+
+        .featured-project h3 {
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: clamp(28px, 4vw, 43px);
+
+            line-height: 1.2;
+            font-weight: 500;
+
+            max-width: 850px;
+
+            margin-bottom: 25px;
+        }
+
+        .featured-project p {
+            max-width: 850px;
+
+            color: #d7dde2;
+
+            font-size: 16px;
+        }
+
+        .research-chain {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-top: 35px;
+        }
+
+        .chain-item {
+            border: 1px solid rgba(255,255,255,0.25);
+
+            padding: 7px 12px;
+
+            border-radius: 4px;
+
+            font-size: 12px;
+        }
+
+        .arrow {
+            opacity: 0.45;
+        }
+
+
+        /* =========================
+           PUBLICATIONS
+        ========================== */
+
+        .publication {
+            display: grid;
+
+            grid-template-columns: 130px 1fr;
+
+            gap: 40px;
+
+            padding: 28px 0;
+
+            border-top: 1px solid var(--line);
+        }
+
+        .publication:last-child {
+            border-bottom: 1px solid var(--line);
+        }
+
+        .publication-year {
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .publication h3 {
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 21px;
+            font-weight: 500;
+
+            margin-bottom: 7px;
+        }
+
+        .publication p {
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+
+        /* =========================
+           ACADEMIC PROFILES
+        ========================== */
+
+        .profile-links {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 15px;
+        }
+
+        .profile {
+            background: white;
+
+            border: 1px solid var(--line);
+            border-radius: 6px;
+
+            padding: 22px;
+
+            transition: 0.2s ease;
+        }
+
+        .profile:hover {
+            border-color: #b9c1c9;
+            transform: translateY(-2px);
+        }
+
+        .profile span {
+            display: block;
+
+            font-size: 12px;
+            color: var(--muted);
+
+            margin-bottom: 8px;
+        }
+
+        .profile strong {
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================== */
+
+        .contact-box {
+            background: white;
+
+            border: 1px solid var(--line);
+            border-radius: 8px;
+
+            padding: 45px;
+        }
+
+        .contact-box p {
+            color: var(--muted);
+
+            max-width: 650px;
+
+            margin-bottom: 25px;
+        }
+
+        .email {
+            font-size: 18px;
+            color: var(--accent);
+
+            border-bottom: 1px solid #aeb7bf;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            padding: 35px 0;
+
+            color: var(--muted);
+
+            font-size: 13px;
+        }
+
+        .footer-inner {
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 850px) {
+
+            .nav-links {
+                display: none;
             }
 
-            nav a {
-                margin-left: 12px;
-                margin-right: 12px;
+            .hero {
+                padding: 80px 0;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+
+                gap: 50px;
+            }
+
+            .section-header {
+                grid-template-columns: 1fr;
+
+                gap: 18px;
+            }
+
+            .about-grid,
+            .research-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-links {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .featured-project {
+                padding: 35px;
+              }
+
+            .publication {
+                grid-template-columns: 1fr;
+
+                gap: 8px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
             }
         }
+
+        @media (max-width: 520px) {
+
+            .profile-links {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+        }
+
     </style>
 </head>
 
+
 <body>
 
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
 <header>
-    <nav>
-        <div class="logo">Sajjad Yalveh</div>
 
-        <div>
-            <a href="#about">About</a>
-            <a href="#research">Research</a>
-            <a href="#publications">Publications</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
-</header>
+    <div class="container">
 
-<main>
+        <nav>
 
-    <section class="hero">
-
-        <div>
-            <h1>Sajjad Yalveh</h1>
-
-            <div class="subtitle">
-                Doctoral Researcher in Law at the University of Passau, Germany
-            </div>
-
-            <div class="degree">
-                PhD in Private Law, Shiraz University, Iran
-            </div>
-
-            <p>
-                Legal scholar working in private law, civil liability,
-                comparative law, and German private law, with a particular
-                interest in the structure and limits of liability and
-                compensation.
-            </p>
-        </div>
-
-        <div class="research-box">
-            <h2>Current Research</h2>
-
-            <p>
-                Liability Gaps and Uncompensated Loss in German Private Law
-            </p>
-
-            <br>
-
-            <p>
-                Haftungslücke · nicht ersatzfähiger Schaden ·
-                ungedeckter Schaden · Restschaden
-            </p>
-        </div>
-
-    </section>
-
-
-    <section id="about">
-
-        <h2>About</h2>
-
-        <p>
-            My research is situated at the intersection of private law,
-            civil liability, and comparative legal scholarship.
-            I am particularly interested in the legal conditions under
-            which loss becomes legally compensable and in the situations
-            in which damage remains uncompensated despite the existence
-            of a legally relevant loss.
-        </p>
-
-    </section>
-
-
-    <section id="research">
-
-        <h2>Research</h2>
-
-        <div class="research-grid">
-
-            <div class="card">
-                <h3>Private Law</h3>
-                <p>
-                    General principles and structural questions of
-                    private law and obligations.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Civil Liability</h3>
-                <p>
-                    Liability regimes, compensability of loss,
-                    Haftung and the boundaries of damages.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Comparative Law</h3>
-                <p>
-                    Comparative analysis of German, Iranian and
-                    European private law.
-                </p>
-            </div>
-
-        </div>
-
-        <div class="project">
-
-            <h3>
-                Liability Gaps and Uncompensated Loss in German Private Law
-            </h3>
-
-            <p>
-                The project investigates the phenomenon of uncompensated
-                loss and the circumstances in which German private law
-                does not provide a corresponding claim for compensation.
-                It examines the relationship between damage, compensability,
-                liability and the concept of Haftungslücke.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <section id="publications">
-
-        <h2>Publications</h2>
-
-        <p>
-            Publications, working papers and research outputs will be
-            listed here.
-        </p>
-
-    </section>
-
-
-    <section id="contact">
-
-        <h2>Contact</h2>
-
-        <p>
-            Academic Email:
-            <a href="mailto:sajjadyalveh.official@gmail.com">
-                sajjadyalveh.official@gmail.com
+            <a href="#" class="brand">
+                Sajjad Yalveh
             </a>
-        </p>
 
-    </section>
+            <ul class="nav-links">
 
-</main>
+                <li>
+                    <a href="#about">About</a>
+                </li>
 
+                <li>
+                    <a href="#research">Research</a>
+                </li>
 
-<footer>
-    © 2026 Sajjad Yalveh · Legal Scholar · Private Law · Comparative Law
-</footer>
-
-</body>
-</html>
+                <li>
+                    <a href="#publications">Publications</a>
+        }
